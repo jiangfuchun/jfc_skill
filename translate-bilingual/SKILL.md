@@ -18,6 +18,10 @@ description: Use when the user wants to translate English content to Chinese and
 
 ## 工作流
 
+### Step 0：时间锚定（必须执行）
+
+在开始翻译之前，使用 `date` 命令或系统提示信息获取**当前准确日期和时间**。当前日期将用于 HTML 页面的页脚元数据标记。
+
 ### Step 1：内容获取
 
 根据用户输入类型获取内容：
@@ -133,7 +137,7 @@ description: Use when the user wants to translate English content to Chinese and
   {{CONTENT}}
 
   <div class="footer">
-    <p>{{SOURCE_FOOTER}} | 中英对照翻译 · 仅供学习参考</p>
+    <p>{{SOURCE_FOOTER}} | 翻译日期：{{CURRENT_DATE}} | 中英对照翻译 · 仅供学习参考</p>
   </div>
 </div>
 </body>
@@ -235,10 +239,10 @@ description: Use when the user wants to translate English content to Chinese and
 
 ### Step 5：保存文件
 
-1. **文件名规则**：
-   - 本地文件 `doc.md` → `doc.html`
-   - URL `https://example.com/article` → `article.html`
-   - 粘贴文本 → 用户指定或默认 `translation.html`
+1. **文件名规则**（在文件名中标记当前日期，使用 Step 0 获取的日期）：
+   - 本地文件 `doc.md` → `doc_YYYYMMDD.html`
+   - URL `https://example.com/article` → `article_YYYYMMDD.html`
+   - 粘贴文本 → 用户指定或默认 `translation_YYYYMMDD.html`
 2. 使用 `Write` 工具写入到当前工作目录
 3. 告知用户文件已保存的路径
 
