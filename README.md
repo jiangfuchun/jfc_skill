@@ -56,3 +56,45 @@ cp -r translate-bilingual ~/.claude/skills/
 - 「**帮我看一下特斯拉的深度研报**」→ 触发 `company-research`
 - 「**写一份液冷行业的深度报告**」→ 触发 `industry-research`
 - 「**把这个文档翻译成中英对照**」→ 触发 `translate-bilingual`
+
+## 语法示例
+
+### company-research
+
+```
+/company-research 特斯拉
+/company-research 600519
+/company-research 腾讯控股
+/company-research NVDA
+/company-research 比亚迪 深度研究
+```
+
+> 支持股票代码、公司中英文名。输入后自动搜索采集信息 → 行业定位 → 五力/护城河/财务分析 → 估值 → 输出 HTML 研报。
+
+### industry-research
+
+```
+/industry-research 液冷
+/industry-research AI芯片
+/industry-research 人形机器人
+/industry-research 光伏
+/industry-research 储能
+/industry-research solid-state battery
+```
+
+> 输入一个行业名词，自动完成：信息采集 → S 曲线定位 → 产业链拆解 → 竞争格局 → 龙头分析 → A 股标的扫描 → 估值 → SWOT → 输出 HTML 研报。
+
+### translate-bilingual
+
+```
+# 翻译 URL 内容
+/translate-bilingual https://example.com/article
+
+# 翻译本地文件
+/translate-bilingual ./docs/whitepaper.md
+
+# 翻译粘贴文本
+/translate-bilingual <粘贴的英文内容>
+```
+
+> 支持三种输入方式：URL、本地文件路径、直接粘贴文本。输出双栏对照的 HTML 文件，代码块/公式/Mermaid 流程图保持原样不翻译。
